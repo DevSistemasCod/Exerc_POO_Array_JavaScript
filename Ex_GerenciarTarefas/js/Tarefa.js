@@ -1,28 +1,33 @@
 export class Tarefa {
-    // Atributos privados da classe Tarefa
+    // Atributos privados
     #criticidade;
     #descricao;
     #prazo;
+    #selecionada;
 
-    // Construtor da classe Tarefa
+    // Construtor
     constructor(criticidade, descricao, prazo) {
-        this.#criticidade = criticidade; 
-        this.#descricao = descricao;     
-        this.#prazo = prazo;             
+        this.#criticidade = criticidade;
+        this.#descricao = descricao;
+        this.#prazo = prazo;
+        this.#selecionada = false;
     }
 
-    // Método getter para obter a criticidade da tarefa
+    // Métodos getters
     get getCriticidade() {
         return this.#criticidade;
     }
 
-    // Métodos getters
     get getDescricao() {
         return this.#descricao;
     }
 
     get getPrazo() {
         return this.#prazo;
+    }
+
+    get isSelecionada() {
+        return this.#selecionada;
     }
 
     // Métodos setters
@@ -38,7 +43,11 @@ export class Tarefa {
         this.#prazo = valor;
     }
 
-    // Método para retornar uma representação em texto da tarefa
+    setSelecionada(selecionada) {
+        this.#selecionada = selecionada;
+    }
+
+    //Retorna uma representação em texto da tarefa
     toString() {
         return `Criticidade: ${this.#criticidade}, Descrição: ${this.#descricao}, Prazo: ${this.#prazo}`;
     }
